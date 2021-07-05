@@ -1,0 +1,15 @@
+.TimeLine {
+  &_card--active {
+    border-color: rgb(255, 196, 0) !important;
+  }
+
+  &_card--active:nth-child(even):before {
+    background-color: rgb(255, 88, 124);
+  }
+
+  &_card--active:nth-child(odd):before {
+    background-color: rgb(153, 0, 255);
+  }
+}
+
+

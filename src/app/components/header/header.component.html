@@ -1,0 +1,41 @@
+<mat-toolbar [ngStyle]="{'background': color}" class="Disabe_htmll">
+  <div>
+    <span class="Title_name">{{title}}</span>
+
+    <!-- SEARCH FUTURE LAUCHES -->
+    <mat-form-field class="Form_field" 
+                    [floatLabel]="'never'" 
+                    *ngIf="maTab === 'First'">
+      <mat-icon matSuffix>search</mat-icon>
+      <input  matInput 
+              type="text" 
+              placeholder="Nome: lançamentos futuros" 
+              [formControl]="futureSearch" 
+              [matAutocomplete]="auto">
+      <!-- Material autocomplete -->
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let launche of futurLaunches" [value]="launche.name">
+          {{launche.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- SEARCH PAST LAUCHES -->
+    <mat-form-field class="Form_field" 
+                    [floatLabel]="'never'" 
+                    *ngIf="maTab === 'Second'"
+                    [ngClass]="{'Form_field--active': maTab === 'Second' }"  >
+      <mat-icon matSuffix>search</mat-icon>
+      <input  matInput 
+              type="text" 
+              placeholder="Nome: lançamentos passado" 
+              [formControl]="pastSearch" [matAutocomplete]="auto2">
+      <!-- Material autocomplete -->
+      <mat-autocomplete #auto2="matAutocomplete">
+        <mat-option *ngFor="let launche of pastLaunches" [value]="launche.name">
+          {{launche.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</mat-toolbar>

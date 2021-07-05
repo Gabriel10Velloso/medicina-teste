@@ -1,0 +1,141 @@
+.Modal {
+  &_header-title {
+    margin: 10px auto;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    height: 60px;
+    line-height: 30px;
+    overflow: hidden;
+  }
+
+  &_page-wrapper {
+    margin: 15px;
+    // background-color: red;
+  }
+
+  &_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+  }
+
+  &_crew {
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  &_img {
+    width: 200px;
+    margin-top: 25px;
+  }
+
+  &_img-rocket1,
+  &_img-rocket2,
+  &_img-rocket3,
+  &_img-rocket4 {
+    width: 200px;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  &_img-rocket1 {
+    margin-left: 0px;
+  }
+
+  &_img-rocket2 {
+    margin-left: 20px;
+  }
+
+  &_img-rocket3 {
+    margin-left: 40px;
+  }
+
+  &_img-rocket4 {
+    margin-left: 60px;
+  }
+
+  &_column1,
+  &_column2 {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+
+  &_column1 {
+    margin-top: 100px;
+  }
+
+  &_column1-rocket {
+    margin-top: 0px;
+  }
+
+  &_left-column {
+    top: 100px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  &_right-column {
+    width: 100%;
+    height: auto;
+    // background:red
+  }
+
+  &_payload {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    &_row {
+      flex-direction: column;
+    }
+
+    &_column1 {
+      margin-top: 0px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      &_img {
+        width: 170px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    &_header-title {
+      font-size: 20px;
+    }
+
+    &_payload {
+      font-size: 16px;
+    }
+  }
+}
+
+// BTN CLOSE MODAl
+.BTN {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &_btn {
+    margin: 10px auto;
+    padding: 5px 20% 5px 20%;
+    background: rgb(255, 166, 0);
+    color: white;
+    overflow: hidden;
+  }
+
+  &_btn--active {
+    margin: 25px auto;
+  }
+}

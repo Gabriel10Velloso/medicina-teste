@@ -1,0 +1,53 @@
+<div class="TimeLine">
+  <div class="TimeLine_card" *ngFor="let launche of launches; let i = index">
+    <mat-card class="TimeLine_my-card">
+      <div>
+        <!-- <mat-card-title>ID: {{launche.id}}</mat-card-title> -->
+        <mat-card-title>Nome: {{launche.name}}</mat-card-title>
+        <mat-card-subtitle>Número do vôos: {{launche.flight_number}}</mat-card-subtitle>
+        <mat-card-subtitle>
+            Último lançamento: {{launche.date_local | date: 'dd/MM/yyyy - hh'}} hs
+        </mat-card-subtitle>
+      </div>
+      <img *ngIf="launche.links?.patch?.small"
+            mat-card-image 
+            [src]="launche.links?.patch?.small"
+            alt="Teste Fronte">
+      <mat-card-content>
+        <p>
+          Missão bem sucedida: {{launche.success ? 'Sim' : 'Não'}}
+        </p>
+        <p *ngIf="launche.crew?.length" 
+            (click)="modalDialogCrew.openDialogModalCrews(infoHeader, launche.crew)">
+            Tripulação info: <strong class="TimeLine_info">Clique aqui</strong>
+        </p>
+        <p *ngIf="launche"
+          (click)="modalDialogPayloads.openDialogModalPayloads(infoHeader2, launche.payloads)">
+          Carga útil info: <strong class="TimeLine_info">Clique aqui</strong>
+        </p>
+        <p *ngIf="launche.rocket"
+            (click)="modalDialogRocket.openDialogModalRockets(infoHeader3, launche.rocket)">
+            Fogete info: <strong class="TimeLine_info">Clique aqui</strong>
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="Btn">
+        <button mat-raised-button class="Btn_youtube" *ngIf="launche.links?.webcast">
+          <a [href]="launche.links?.webcast" target="_blank">YouTube</a>
+        </button>
+        <button mat-raised-button class="Btn_article" *ngIf="launche.links?.article">
+          <a [href]="launche.links?.article" target="_blank">Artigo</a>
+        </button>
+        <button mat-raised-button class="Btn_wikipedia" *ngIf="launche.links?.wikipedia">
+          <a [href]="launche.links?.wikipedia" target="_blank">Wikipedia</a>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!-- OPEN MODAL CREW OR PAYLOADS -->
+<app-modal-info #modalDialogCrew 
+                #modalDialogPayloads 
+                #modalDialogRocket 
+                class="Disable_html">
+</app-modal-info>

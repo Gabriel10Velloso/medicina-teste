@@ -1,0 +1,34 @@
+<!-- LOADER -->
+<app-loader *ngIf="loader" class="Disable_html"></app-loader>
+
+<!-- GEADER -->
+<app-header class="Disable_html"
+            [color]="color" 
+            [title]="title" 
+            (searchEventFuture)="getFutureByName($event)" 
+            (searchEventPast)="getPastByName($event)" 
+            [futurLaunches]="futurLaunches" 
+            [pastLaunches]="pastLaunches" 
+            [maTab]="maTab">
+</app-header>
+
+<!-- <mat-toolbar-row> -->
+<section class="Disable_html">
+  <mat-tab-group (selectedTabChange)="changingHeader($event)">
+    <!--MAT-TAB FUTURE LAUCHES -->
+    <mat-tab label="First">
+      <app-future-launches  (searchFutureLaunches)="searchFutureLaunches($event)"
+                            [maTab]="maTab" 
+                            [launches]="futurLaunches">
+      </app-future-launches>
+    </mat-tab>
+    <!--MAT-TAB PAST LAUCHES -->
+    <mat-tab label="Second">
+      <app-past-launches    (searchPastLaunches)="searchPastLaunches($event)" 
+                            [maTab]="maTab" 
+                            [launches]="pastLaunches">
+      </app-past-launches>
+    </mat-tab>
+  </mat-tab-group>
+</section>
+<!-- </mat-toolbar-row> -->

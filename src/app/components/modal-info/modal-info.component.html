@@ -1,0 +1,100 @@
+<!-- MODAL  DIALOGO CREW -->
+<div class="Modal">
+  <ng-template #dialogCrewRocket>
+    <div class="Modal_header-title">
+      <p>{{infoHeader}}</p>
+    </div>
+
+    <!-- MODAL DIALOGO CREW -->
+    <div class='Modal_page-wrapper' >
+      <div class='Modal_row'>
+        <!-- Open Crew -->
+        <div class='Modal_column1' *ngIf="showAndHiden">
+          <div class='Modal_left-column ' *ngFor="let crew of crews; let i = index">
+            <span class="Modal_crew" (click)="crewRocket(crew, i)">Tripulate: 0{{i+1}}</span>
+          </div>
+        </div>
+
+        <!-- Open Crew -->
+        <div class='Modal_column2' *ngIf="showAndHiden">
+          <div class='Modal_right-column'>
+            <span> Tripulate: {{crewMember}}</span><br>
+            <span> Nome: {{crew?.name === null ? 'Info indisponível': crew?.name}} </span><br>
+            <span> Agência: {{crew?.agency === null ? 'Info indisponível': crew?.agency}}</span> <br><br>
+            <img *ngIf="crew?.image" class="Modal_img" [src]="crew?.image" alt="Teste Front"> <br>
+            <span *ngIf="crew?.wikipedia"> Wikipedia: 
+              <a [href]="crew?.wikipedia" target="_blank"> Clique aqui</a>
+            </span>
+          </div>
+        </div>
+
+           <!-- MODAL DIALOGO ROCKET -->
+        <div class='Modal_column1 Modal_column1-rocket' *ngIf="!showAndHiden">
+          <div class='Modal_left-column'>
+            <span class="Modal_crew Modal_rocket"> 
+              Foguete: <strong> {{rocket?.name === null ? 'Info indisponível': rocket?.name}}</strong> 
+            </span><br><br>
+            <span class="Modal_crew Modal_rocket"> 
+              Altura: <strong> {{rocket?.height?.meters === null ? 'Info indisponível': rocket?.height?.meters + ' m'}}</strong> 
+            </span><br><br>
+            <span class="Modal_crew Modal_rocket"> 
+              Diâmetro: <strong> {{rocket?.diameter?.meters === null ? 'Info indisponível': rocket?.diameter?.meters + ' m'}}</strong> 
+            </span><br><br>
+            <span class="Modal_crew Modal_rocket"> 
+              Massa: <strong> {{rocket?.mass?.kg === null ? 'Info indisponível': rocket?.mass?.kg + ' Kg'}}</strong> 
+            </span><br><br>
+          </div>
+        </div>
+
+        <!-- Open Rocket -->
+        <div class='Modal_column2' *ngIf="!showAndHiden">
+          <div class='Modal_right-column'>
+            <!-- A solução abaixo não é a ideal, ajustar futuramente -->
+            <div *ngFor="let rocket of rocket?.flickr_images; let i = index"> 
+              <div *ngIf="i < 4">
+                <div class='Modal_img-rocket{{i+1}}' (click)="showImg(i)">{{i+1}}</div>
+              </div>
+            </div>
+            <div *ngFor="let rocket of rocket?.flickr_images; let i = index">
+              <img *ngIf="i === valImg" class="Modal_img" [src]="rocket" alt="Teste Front">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="BTN">
+      <button mat-stroked-button class="BTN_btn BTN_btn--active" matDialogClose> FECHAR </button>
+    </div>
+  </ng-template>
+</div>
+
+<!-- MODAL DIALOGO PAYLOADS -->
+<div class="Modal">
+  <ng-template #dialogPayloads>
+    <mat-dialog-content class="Modal_header-title">
+      {{infoHeader}}
+    </mat-dialog-content>
+
+    <div class='Modal_page-wrapper'>
+      <div class='Modal_row'>
+        <div class='Modal_column2'>
+          <div class='Modal_column2'>
+            <div class='Modal_right-column'>
+              <p class="Modal_payload"> Nome: {{payload?.name === null ? 'Info indisponível': payload?.name}} </p> <br>
+              <p class="Modal_payload"> Peso: {{payload?.mass_kg === null ? 'Info indisponível': payload?.mass_kg}} </p>
+              <br>
+              <p class="Modal_payload"> Nacionalidade: {{payload?.nationalities === null ? 'Info indisponível':
+                payload?.nationalities}} </p><br>
+              <p class="Modal_payload"> Tipo {{payload?.type === null ? 'Info indisponível': payload?.type}} </p><br>
+              <p class="Modal_payload"> Órbita: {{payload?.orbit === null ? 'Info indisponível': payload?.orbit}} </p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="BTN">
+      <button mat-stroked-button class="BTN_btn" matDialogClose> FECHAR </button>
+    </div>
+  </ng-template>
+</div>

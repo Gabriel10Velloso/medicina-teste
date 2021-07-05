@@ -1,0 +1,55 @@
+.Form {
+  &_field {
+    margin-left: 100px;
+    margin-right: 50px;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 230px;
+  }
+
+  &_field--active {
+    margin-left: 78px;
+  }
+  @media only screen and (max-width: 768px) {
+    &_field {
+      margin-left: 15px;
+    }
+  
+    &_field--active {
+      margin-left: 15px;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    &_field {
+      margin-left: 5px;
+    }
+  
+    &_field--active {
+      margin-left: 5px;
+    }
+  }
+}
+
+// MATERIAL
+.mat-toolbar {
+  height: 50px;
+  color: white;
+  overflow: hidden;
+}
+
+:host::ng-deep .mat-form-field-ripple {
+  background-color: #ffffff !important;
+}
+
+.mat-option {
+  background: #ffffff;
+}
+
+// DISABLE TITLE
+.Title {
+  @media only screen and (max-width: 768px) {
+    &_name {
+      display: none;
+    }
+  }
+}

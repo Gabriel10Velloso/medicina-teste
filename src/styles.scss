@@ -1,0 +1,195 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material'as mat;
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// SET TOAST ERROR
+@import '~ngx-toastr/toastr';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// SET TIME LINE GLOBAL
+.TimeLine {
+  width: 500px;
+  margin: auto;
+
+  &_card {
+    border-top: 2px dashed;
+    border-color: rgb(255, 0, 0) !important;
+    margin: 0;
+    padding: 30px;
+    counter-increment: section;
+    position: relative;
+  }
+
+  &_my-card {
+    @include mat.elevation(4);
+    mat-card-title{
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+  }
+
+  img {
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  &_card:nth-child(even):before {
+    content: counter(section);
+    right: 100%;
+    margin-right: -20px;
+    position: absolute;
+    border-radius: 50%;
+    padding: 10px;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(0, 119, 255);
+    text-align: center;
+    color: white;
+    font-size: 110%;
+  }
+
+  &_card:nth-child(odd):before {
+    content: counter(section);
+    left: 100%;
+    margin-left: -20px;
+    position: absolute;
+    border-radius: 50%;
+    padding: 10px;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(0, 72, 155);
+    text-align: center;
+    color: white;
+    font-size: 110%;
+  }
+
+  &_card:nth-child(even) {
+    border-left: 2px dashed;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-right: 25px;
+    padding-right: 0;
+    // margin-top: -13px;
+  }
+
+  &_card:nth-child(odd) {
+    border-right: 2px dashed;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-left: 25px;
+    padding-left: 0;
+    // margin-top: -13px;
+  }
+
+  &_card:first-child {
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &_card:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &_info {
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 786px) {
+    width: 360px;
+  }
+
+  @media only screen and (max-width: 425px) {
+    width: 300px;
+
+    &_card,
+    &_card:nth-child(odd),
+    &_card:nth-child(even) {
+      border: 0px dashed;
+      padding: 0px 20px 0px 0px;
+      margin: 30px 0px 10px 10px;
+    }
+
+    &_card:nth-child(odd):before,
+    &_card:nth-child(even):before {
+      display: none;
+    }
+  }
+}
+
+// BTN GLOBAL LINKS CARDS
+.Btn {
+  &_youtube {
+    background: red;
+    // color: white;
+  }
+
+  &_article {
+    background: rgb(255, 166, 0);
+    // color: black;
+  }
+
+  &_wikipedia {
+    background: rgb(0, 153, 153);
+    // color: black;
+  }
+
+  a {
+    // color: inherit;
+    color: white;
+    text-decoration: none;
+  }
+
+  @media only screen and (max-width: 425px) {
+    button {
+      margin: 0 10px 10px 0 !important;
+    }
+
+    &_wikipedia {
+      background: rgb(0, 153, 153);
+      width: 170px;
+    }
+  }
+}
+
+
+
+// MATERIAL SETTING GLOBAL
+// MODAL DIALOG SETTING
+.custom-dialog-crewsRocket > mat-dialog-container {
+  background: white;
+  width: 800px;
+  height: auto;
+
+  @media only screen and (max-width: 600px) {
+    height: 600px;
+  }
+}
+
+// MODAL DIALOG SETTING
+.custom-dialog-payloads > mat-dialog-container {
+  background: white;
+  width: 500px;
+  height: auto;
+}
+
+// DISABLE HTML
+.Disable {
+  @media only screen and (max-width: 300px) {
+    &_html {
+      display: none;
+    }
+  }
+}
