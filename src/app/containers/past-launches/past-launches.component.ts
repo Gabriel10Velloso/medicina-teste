@@ -22,7 +22,10 @@ export class PastLaunchesComponent implements OnInit{
   infoHeader2 = 'Informação da carga útil'; 
   infoHeader3 = 'Informação do foguete';
 
-  constructor(private pastLouchesService: PastLouchesService, private store: Store<AppState>,  private toastr: ToastrService) { }
+  constructor(  private pastLouchesService: PastLouchesService, 
+                private store: Store<AppState>,  
+                private toastr: ToastrService
+              ) { }
 
   ngOnInit(): void {
     this.getPastLauches();
