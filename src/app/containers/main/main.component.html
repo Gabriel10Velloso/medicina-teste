@@ -16,14 +16,14 @@
 <section class="Disable_html">
   <mat-tab-group (selectedTabChange)="changingHeader($event)">
     <!--MAT-TAB FUTURE LAUCHES -->
-    <mat-tab label="First">
+    <mat-tab label="Futuro">
       <app-future-launches  (searchFutureLaunches)="searchFutureLaunches($event)"
                             [maTab]="maTab" 
                             [launches]="futurLaunches">
       </app-future-launches>
     </mat-tab>
     <!--MAT-TAB PAST LAUCHES -->
-    <mat-tab label="Second">
+    <mat-tab label="Passado">
       <app-past-launches    (searchPastLaunches)="searchPastLaunches($event)" 
                             [maTab]="maTab" 
                             [launches]="pastLaunches">

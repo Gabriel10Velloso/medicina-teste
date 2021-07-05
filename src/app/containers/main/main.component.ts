@@ -26,7 +26,7 @@ export class MainComponent implements OnInit, OnDestroy {
   color = 'rgb(61, 175, 170)';
   title = 'Lista de lançamentos futuros';
   loader = false;
-  maTab = 'First';
+  maTab = 'Futuro';
   loadingSubscription: Subscription | any;
 
   constructor(  private store: Store<AppState>, 
@@ -48,11 +48,11 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   changingHeader(val: any) {
-    if (val.tab?.textLabel === 'First' || val === 'First') {
+    if (val.tab?.textLabel === 'Futuro' || val === 'Futuro') {
       this.color = '#2193b0';
       this.title = 'Lista de lançamentos futuros';
       this.maTab = 'First';
-    } else if (val.tab?.textLabel === 'Second' || val === 'Second') {
+    } else if (val.tab?.textLabel === 'Passado' || val === 'Passado') {
       this.color = '#1faccc';
       this.title = 'Lista de lançamentos passados';
       this.maTab = 'Second';
