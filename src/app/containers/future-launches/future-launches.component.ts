@@ -26,7 +26,7 @@ export class FutureLaunchesComponent implements OnInit {
 
   @Output() searchFutureLaunches = new EventEmitter<LauncheModel[]>();
 
-  constructor(  private futureLaunchesService: FutureLaunchesService, 
+  constructor(  private futureLaunchesService: FutureLaunchesService,
                 private store: Store<AppState>,  
                 private toastr: ToastrService) { }
 
